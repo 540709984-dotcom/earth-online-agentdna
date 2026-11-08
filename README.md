@@ -18,7 +18,7 @@ AgentDNA 是一套原创的协作约定，不是一个自动调度器，也不�
 
 人始终决定目标、外部写操作、最后接收，以及哪些经验进入长期规则。
 
-## 四种 Skill
+## 五种 Skill
 
 | Skill | 输出 | 用途 |
 |---|---|---|
@@ -26,6 +26,7 @@ AgentDNA 是一套原创的协作约定，不是一个自动调度器，也不�
 | `evidence-transcribe` | EvidencePacket | 将来源、日期、主张状态和不适用边界结构化 |
 | `proofread-gate` | VerificationReport | 将“文件生成”“收到”“验证”“接受”分开记录 |
 | `heritage-proposal` | ChangeProposal | 只提出经验升级候选，由人批准后才改规则 |
+| `agentdna-research` | ResearchBrief → EvidenceLedger → Synthesis → Verification | 一支自包含的深度调研主流程，适合直接部署到 WorkBuddy |
 
 每支 Skill 都是自包含目录；可从 `.codebuddy/skills/` 项目级加载，也可按 WorkBuddy 平台当日文档打包上传。安装、加载和真实多代理调度需在你的客户端验证，本仓库不伪造运行记录。
 
@@ -57,7 +58,7 @@ AgentDNA 是一套原创的协作约定，不是一个自动调度器，也不�
 
 ```text
 .
-├── .codebuddy/skills/      # 四支 WorkBuddy 项目级 Skill
+├── .codebuddy/skills/      # 五支 WorkBuddy 项目级 Skill
 ├── assets/                 # 原创 SVG 图示
 ├── docs/                   # 协议、评估、研究和 WorkBuddy 指引
 ├── examples/               # 明确标注为虚构的演练

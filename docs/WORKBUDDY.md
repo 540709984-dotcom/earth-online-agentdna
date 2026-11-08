@@ -2,7 +2,7 @@
 
 版本：0.1.0。格式依据核对日期：2026-11-08。
 
-本包提供四个可独立复制的 Skill、任务模板和虚构演练。它是协作方法与文件协议，不是调度器、隔离系统或强制执行的权限控制。尚未在当前用户 WorkBuddy 客户端完成导入与真实业务验收。
+本包提供五个可独立复制的 Skill、任务模板和虚构演练。它是协作方法与文件协议，不是调度器、隔离系统或强制执行的权限控制。尚未在当前用户 WorkBuddy 客户端完成导入与真实业务验收。
 
 ## 文件与能力
 
@@ -12,6 +12,7 @@
 | `evidence-transcribe` | 来源、日期、数字口径、反证 | `evidence-ledger.json`、`handoff-receipt.json` |
 | `proofread-gate` | 独立复核、版本失效、接收与验收分离 | `verification-report.json`、`handoff-receipt.json` |
 | `heritage-proposal` | 证据回读后的经验候选，保留逐条人审 | `heritage-proposal.json` |
+| `agentdna-research` | 一支完整的深度调研闭环：任务包、证据、综合、复核、人工接收 | `research-brief.json`、`evidence-ledger.json`、`synthesis-outline.md`、`verification-report.json`、`change-proposal.json` |
 
 每个技能的模板都在自己的 `templates/` 下，没有对其他技能目录的运行依赖。仓库根 `templates/` 提供集中阅读副本；运行时以技能内部模板为准。维护者修改模板后应同步对应副本并核对差异。
 
@@ -92,6 +93,6 @@ WorkBuddy 官方区分 Skill、专家与专家团；专家团才是由团长组�
 
 文件检查包括必填 frontmatter、JSON 可解析和自包含模板路径。客户端导入、实际独立调度、真实文件交接、业务收益与用户认可需要另行执行并保留证据。本轮没有更改 WorkBuddy 的用户配置、连接器、模型或付费设置，没有替用户向其他人发送消息。
 
-2026-11-08 本地结构自检：4/4 个技能具备上述必填 frontmatter 字段且名称与目录一致；16/16 个 JSON 可解析且包含公共交接字段；7/7 个技能内部模板与根模板一致；技能文本引用的模板均存在；所有示例 JSON 均标有 `simulation: true`。这些是文件结构检查，不是 WorkBuddy 导入或业务验收。
+2026-11-08 本地结构自检记录将在每次封包后更新；这些检查只验证文件结构，不等于 WorkBuddy 导入或业务验收。
 
 经验候选遵守项目既定 Beacon/Von 与人工审核约定；评分、候选草稿和技能文件存在都不能单独证明“自我升级完成”。

@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1.0",
+  "task_id": "RESEARCH-REPLACE-ME",
+  "parent_spec": {"id": "ROOT-SPEC", "version": "0.1.0"},
+  "producer": "coordinator",
+  "reviewer": "independent-reviewer",
+  "goal": "填写可观察、可验收的研究目标",
+  "deliverables": ["evidence-ledger.json", "synthesis.md", "verification-report.json"],
+  "audience": "决策者或具体使用者",
+  "scope": {"include": [], "exclude": []},
+  "execution": {"mode": "single_agent_with_independent_review", "max_agent_calls": 6, "max_retries_per_stage": 1, "max_wall_minutes": 30, "native_multi_agent_available": false},
+  "evidence_policy": {"prefer_primary_sources": true, "max_sources": 20, "require_measurement_context": true, "record_counterevidence": true},
+  "acceptance_criteria": ["关键主张可回到具体来源", "事实、推论和建议已区分", "指定版本经独立复核"],
+  "stop_when": ["达到预算上限", "关键来源缺失或冲突", "缺少独立复核条件", "需要未授权外部操作"],
+  "external_action_authorization": {"status": "not_requested", "scope": [], "evidence_ref": null},
+  "artifact_version": "0.1.0",
+  "received": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "verified": {"status": "pending", "by": null, "at": null, "artifact_version": null, "evidence_refs": []},
+  "accepted": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "open_questions": []
+}

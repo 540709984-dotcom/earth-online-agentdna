@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.1.0",
+  "proposal_id": "CHANGE-REPLACE-ME",
+  "task_id": "RESEARCH-REPLACE-ME",
+  "producer": "coordinator",
+  "claim_status": "proposed",
+  "candidate_change": "填写可跨任务复用、可验证的规则改进",
+  "evidence_refs": [],
+  "counterexamples_or_limits": [],
+  "privacy_and_authorization_impact": "无；若有影响必须写明",
+  "proposed_scope": "仅本项目 / 需要人审后再扩大",
+  "human_review": {"status": "pending", "by": null, "at": null, "decision": null, "reason": null}
+}

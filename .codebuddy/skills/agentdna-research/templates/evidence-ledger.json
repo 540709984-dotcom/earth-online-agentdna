@@ -1,0 +1,22 @@
+{
+  "schema_version": "0.1.0",
+  "task_id": "RESEARCH-REPLACE-ME",
+  "parent_spec": {"id": "ROOT-SPEC", "version": "0.1.0"},
+  "producer": "researcher",
+  "reviewer": "independent-reviewer",
+  "artifact_version": "0.1.0",
+  "claims": [
+    {
+      "claim_id": "CLM-001",
+      "text": "填写一条可证实或推翻的主张",
+      "claim_status": "unverified",
+      "source_refs": [{"url_or_id": "https://example.org/source", "locator": "section or page", "published_at": null, "observed_at": null, "accessed_at": null, "source_type": "primary"}],
+      "measurement_context": {"metric": null, "unit": null, "numerator": null, "denominator": null, "baseline": null, "sample": null, "model_or_version": null},
+      "limitations": [],
+      "counterevidence": []
+    }
+  ],
+  "received": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "verified": {"status": "pending", "by": null, "at": null, "artifact_version": null, "evidence_refs": []},
+  "accepted": {"status": "pending", "by": null, "at": null, "artifact_version": null}
+}

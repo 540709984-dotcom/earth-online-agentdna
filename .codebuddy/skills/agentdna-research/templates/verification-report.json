@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1.0",
+  "task_id": "RESEARCH-REPLACE-ME",
+  "parent_spec": {"id": "ROOT-SPEC", "version": "0.1.0"},
+  "producer": "coordinator",
+  "reviewer": "independent-reviewer",
+  "artifact_version": "0.1.0",
+  "artifact_path": "outputs/synthesis.md",
+  "artifact_sha256": null,
+  "independence": {"different_actor": false, "did_not_author_artifact": false, "fresh_evidence_check": false, "note": "同一会话的角色扮演不是独立复核"},
+  "checks": [
+    {"criterion_id": "AC-001", "result": "pending", "evidence_ref": null, "finding": "关键主张可回到具体来源"},
+    {"criterion_id": "AC-002", "result": "pending", "evidence_ref": null, "finding": "事实、推论和建议已区分"},
+    {"criterion_id": "AC-003", "result": "pending", "evidence_ref": null, "finding": "数字保留了测量口径和限制"}
+  ],
+  "blockers": [],
+  "received": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "verified": {"status": "pending", "by": null, "at": null, "artifact_version": null, "evidence_refs": []},
+  "accepted": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "invalidate_if": ["综合稿版本或内容变化", "父任务包变化", "关键来源被撤回或出现决定性反证"]
+}
