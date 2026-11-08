@@ -2,6 +2,12 @@
 
 > 让 Bot 继承经过验证的做事规则，让每一次协作携带证据，让失败能够定位、隔离与回退。
 
+![Earth Online AgentDNA — Multi-Bot × DNA](assets/agentdna-hero.png)
+
+**一人定方向，多 BOT 成阵。** AgentDNA 把稳定规则、任务上下文、证据交接、独立校对和人工验收组织成一套可复用的开源 Skill 协议。
+
+[深度研究报告](docs/research-report.md) · [完整部署说明](docs/DEPLOYMENT.md) · [推广文案](docs/promotion-post.md) · [WorkBuddy 指南](docs/WORKBUDDY.md)
+
 一个人主导的多 Bot 协作协议与 WorkBuddy Skill 包。它把 DNA→mRNA→功能产物视为工程隐喻：稳定规则经过选择后形成有有效期的任务包；执行产生可检查产物；独立复核与人工验收决定任务是否关闭；只有证据充分的规则变更才进入下一个版本。
 
 ![AgentDNA flow](assets/agentdna-flow.svg)
@@ -78,7 +84,7 @@ AgentDNA 是一套原创的协作约定，不是一个自动调度器，也不�
 
 ## 发布状态
 
-`v0.1.0-draft`：文件结构和内容已在本地完成，尚未在用户的 WorkBuddy 客户端导入、调用或对照测试，也尚未发布到 GitHub。请在真实验证后更新兼容性表和变更日志。
+`v0.1.0`：开源首发版。Skill 结构、模板和 JSON 已完成本地校验；WorkBuddy 客户端导入、Grok Bot 真实多 Bot 调度与业务提效仍需按部署说明留存实测证据。
 
 ## 许可证与致谢
 
