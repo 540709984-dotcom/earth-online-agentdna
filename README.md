@@ -6,7 +6,7 @@
 
 **一人定方向，多 BOT 成阵。** AgentDNA 把稳定规则、任务上下文、证据交接、独立校对和人工验收组织成一套可复用的开源 Skill 协议。
 
-[深度研究报告](docs/research-report.md) · [完整部署说明](docs/DEPLOYMENT.md) · [推广文案](docs/promotion-post.md) · [WorkBuddy 指南](docs/WORKBUDDY.md)
+[深度研究报告](docs/research-report.md) · [完整部署说明](docs/DEPLOYMENT.md) · [朋友圈九图](docs/moments-post.md) · [推广文案](docs/promotion-post.md) · [WorkBuddy 指南](docs/WORKBUDDY.md)
 
 一个人主导的多 Bot 协作协议与 WorkBuddy Skill 包。它把 DNA→mRNA→功能产物视为工程隐喻：稳定规则经过选择后形成有有效期的任务包；执行产生可检查产物；独立复核与人工验收决定任务是否关闭；只有证据充分的规则变更才进入下一个版本。
 

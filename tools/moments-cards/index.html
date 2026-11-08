@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1080, initial-scale=1" />
+  <title>Earth Online · AgentDNA 朋友圈九图</title>
+  <style>
+    :root {
+      --navy: #062238;
+      --navy-2: #0b3048;
+      --ink: #172631;
+      --muted: #66747d;
+      --paper: #f3f1e9;
+      --paper-2: #e9ebe6;
+      --cyan: #4db7b0;
+      --mint: #8ee3c7;
+      --amber: #e9ae58;
+      --blue: #4686a5;
+      --rose: #b86d64;
+      --white: #f7fbf8;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; width: 1080px; height: 1440px; overflow: hidden; background: #d8d8d2; }
+    body {
+      font-family: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", Arial, sans-serif;
+      color: var(--ink);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    .card {
+      position: relative;
+      width: 1080px;
+      height: 1440px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      background: var(--paper);
+    }
+    .card.active { display: flex; }
+    .page { padding: 70px 76px 54px; }
+    .dark { background: var(--navy); color: var(--white); }
+    .page-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 18px;
+      border-bottom: 2px solid rgba(23, 38, 49, .18);
+      font-size: 18px;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+    .dark .page-head { border-color: rgba(247, 251, 248, .26); color: rgba(247, 251, 248, .68); }
+    .brand { font-weight: 700; letter-spacing: .11em; }
+    .section-no { font-variant-numeric: tabular-nums; }
+    h1, h2, h3, p { margin: 0; }
+    .title {
+      font-size: 58px;
+      line-height: 1.12;
+      letter-spacing: -.035em;
+      font-weight: 650;
+      text-wrap: balance;
+    }
+    .title.medium { font-size: 50px; }
+    .lead {
+      margin-top: 22px;
+      max-width: 800px;
+      font-size: 24px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+    .dark .lead { color: rgba(247, 251, 248, .74); }
+    .kicker {
+      font-size: 17px;
+      line-height: 1.4;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      font-weight: 700;
+    }
+    .rule { height: 2px; width: 100%; background: rgba(23, 38, 49, .16); }
+    .dark .rule { background: rgba(247, 251, 248, .22); }
+    .footer {
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 2px solid rgba(23, 38, 49, .18);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      font-size: 17px;
+      color: var(--muted);
+    }
+    .dark .footer { border-color: rgba(247, 251, 248, .26); color: rgba(247, 251, 248, .7); }
+    .url {
+      flex: 1 1 auto;
+      min-width: 0;
+      max-width: 810px;
+      overflow-wrap: anywhere;
+      word-break: break-all;
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 600;
+    }
+    .page-num { font-size: 22px; font-variant-numeric: tabular-nums; color: var(--cyan); }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: rgba(77, 183, 176, .12);
+      color: #2f7774;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--cyan); }
+    .quote {
+      background: var(--navy);
+      color: var(--white);
+      padding: 34px 40px;
+      font-size: 31px;
+      line-height: 1.52;
+      letter-spacing: -.015em;
+    }
+    .quote small { display: block; margin-top: 12px; font-size: 17px; color: rgba(247, 251, 248, .65); }
+    .panel { background: var(--paper-2); padding: 28px 30px; }
+    .panel h3 { font-size: 23px; line-height: 1.3; }
+    .panel p { margin-top: 12px; color: var(--muted); font-size: 18px; line-height: 1.55; }
+    .mini-label { font-size: 16px; color: var(--muted); letter-spacing: .08em; }
+    .accent { color: #2d7c77; }
+    .amber { color: #a26b1e; }
+    .muted { color: var(--muted); }
+
+    /* 01 cover */
+    .cover {
+      padding: 70px 76px 56px;
+      background: var(--navy);
+      color: var(--white);
+    }
+    .cover-art {
+      position: absolute;
+      inset: 0;
+      background: #062238 url("../../assets/agentdna-hero.png") center 46% / cover no-repeat;
+      opacity: .8;
+    }
+    .cover-scrim { position: absolute; inset: 0; background: rgba(3, 24, 40, .47); }
+    .cover > *:not(.cover-art):not(.cover-scrim) { position: relative; z-index: 1; }
+    .cover-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 17px;
+      letter-spacing: .16em;
+      color: rgba(247, 251, 248, .72);
+      border-bottom: 2px solid rgba(247, 251, 248, .24);
+      padding-bottom: 20px;
+    }
+    .cover h1 {
+      margin-top: 96px;
+      width: 760px;
+      font-size: 82px;
+      line-height: 1.08;
+      letter-spacing: -.055em;
+      font-weight: 620;
+    }
+    .cover h1 span { color: var(--mint); }
+    .cover-sub {
+      margin-top: 28px;
+      width: 660px;
+      font-size: 27px;
+      line-height: 1.5;
+      color: rgba(247, 251, 248, .82);
+    }
+    .cover-stats {
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: rgba(3, 24, 40, .72);
+    }
+    .stat { padding: 24px 28px 26px; border-right: 2px solid rgba(247, 251, 248, .18); }
+    .stat:last-child { border-right: 0; }
+    .stat strong { display: block; font-size: 48px; font-weight: 550; color: var(--mint); }
+    .stat span { display: block; margin-top: 3px; font-size: 17px; color: rgba(247, 251, 248, .7); }
+    .cover-foot { margin-top: 26px; display: flex; justify-content: space-between; font-size: 16px; color: rgba(247, 251, 248, .68); }
+
+    /* 02 chain */
+    .chain { margin-top: 50px; display: grid; gap: 22px; }
+    .chain-row { display: grid; grid-template-columns: 210px 1fr; align-items: stretch; gap: 22px; }
+    .chain-label { background: var(--navy); color: var(--white); padding: 26px; display: flex; flex-direction: column; justify-content: center; }
+    .chain-label strong { font-size: 24px; }
+    .chain-label span { margin-top: 7px; font-size: 16px; color: rgba(247, 251, 248, .62); }
+    .chain-body { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; position: relative; }
+    .node { background: var(--paper-2); padding: 22px 18px; min-height: 118px; display: flex; flex-direction: column; justify-content: center; }
+    .node b { font-size: 21px; }
+    .node span { margin-top: 8px; font-size: 15px; line-height: 1.45; color: var(--muted); }
+    .node.active { background: #d8ece7; }
+    .node.gate { background: #f1dfbf; }
+    .chain-arrow { text-align: center; font-size: 22px; color: var(--cyan); align-self: center; }
+    .chain-note { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 26px; }
+
+    /* 03 dna mapping */
+    .gene-map { margin-top: 46px; display: grid; grid-template-columns: 1fr 84px 1fr 84px 1fr; align-items: center; }
+    .gene-stage { min-height: 270px; padding: 32px 28px; background: var(--paper-2); }
+    .gene-stage:nth-child(3) { background: #dcece8; }
+    .gene-stage:nth-child(5) { background: #e9dfc9; }
+    .gene-stage .big { font-size: 44px; line-height: 1; font-weight: 650; }
+    .gene-stage h3 { margin-top: 24px; font-size: 24px; }
+    .gene-stage p { margin-top: 13px; font-size: 18px; line-height: 1.55; color: var(--muted); }
+    .map-arrow { text-align: center; font-size: 40px; color: var(--cyan); }
+    .mapping-table { margin-top: 34px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+    .mapping-item { padding: 19px 22px; background: rgba(23, 38, 49, .055); font-size: 17px; line-height: 1.5; }
+    .mapping-item b { color: #2d7772; }
+    .caveat { margin-top: 28px; padding: 18px 22px; border-left: 8px solid var(--amber); color: var(--muted); font-size: 17px; line-height: 1.55; }
+
+    /* 04 four bots */
+    .roles { margin-top: 44px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .role { min-height: 260px; padding: 30px; background: var(--paper-2); position: relative; }
+    .role:nth-child(2) { background: #dcece8; }
+    .role:nth-child(3) { background: #e7e3d8; }
+    .role:nth-child(4) { background: #e7dfd5; }
+    .role-id { font-size: 15px; letter-spacing: .12em; color: var(--muted); }
+    .role h3 { margin-top: 24px; font-size: 30px; }
+    .role ul { margin: 17px 0 0; padding-left: 22px; color: var(--muted); font-size: 18px; line-height: 1.7; }
+    .role-mark { position: absolute; right: 24px; top: 24px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--navy); color: var(--mint); font-size: 20px; font-weight: 700; }
+    .independent { margin-top: 22px; display: flex; align-items: center; justify-content: space-between; background: var(--navy); color: var(--white); padding: 25px 30px; }
+    .independent strong { font-size: 24px; }
+    .independent span { max-width: 520px; font-size: 17px; line-height: 1.5; color: rgba(247, 251, 248, .7); }
+
+    /* 05 skills */
+    .skills-grid { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .skill { min-height: 190px; padding: 26px 28px; background: var(--paper-2); }
+    .skill:nth-child(2), .skill:nth-child(5) { background: #dcece8; }
+    .skill:nth-child(5) { grid-column: 1 / -1; min-height: 164px; display: grid; grid-template-columns: 280px 1fr; gap: 28px; align-items: center; }
+    .skill code { font-family: inherit; color: #2d7772; font-size: 19px; font-weight: 750; }
+    .skill h3 { margin-top: 16px; font-size: 25px; }
+    .skill p { margin-top: 12px; font-size: 17px; line-height: 1.55; color: var(--muted); }
+    .skill:nth-child(5) h3, .skill:nth-child(5) p { margin-top: 6px; }
+
+    /* 06 gates */
+    .gate-flow { margin-top: 48px; display: grid; grid-template-columns: 1fr 64px 1fr 64px 1fr; align-items: stretch; }
+    .gate-step { background: var(--paper-2); padding: 30px 28px; min-height: 248px; }
+    .gate-step:nth-child(3) { background: #dcece8; }
+    .gate-step:nth-child(5) { background: #e9dfc9; }
+    .gate-step .num { font-size: 50px; color: var(--cyan); font-weight: 520; }
+    .gate-step h3 { margin-top: 14px; font-size: 28px; }
+    .gate-step p { margin-top: 12px; font-size: 17px; line-height: 1.6; color: var(--muted); }
+    .gate-sep { display: grid; place-items: center; font-size: 32px; color: var(--cyan); }
+    .controls { margin-top: 28px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .control { padding: 20px 16px; background: rgba(23, 38, 49, .055); text-align: center; }
+    .control b { display: block; font-size: 18px; }
+    .control span { display: block; margin-top: 7px; color: var(--muted); font-size: 15px; line-height: 1.4; }
+
+    /* 07 research */
+    .evidence-columns { margin-top: 42px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .evidence-col { padding: 30px; min-height: 380px; background: #dcece8; }
+    .evidence-col.risk { background: #e8ded4; }
+    .evidence-col h3 { font-size: 28px; }
+    .evidence-col ul { margin: 20px 0 0; padding-left: 24px; font-size: 18px; line-height: 1.75; color: var(--muted); }
+    .equation { margin-top: 24px; padding: 34px; background: var(--navy); color: var(--white); text-align: center; }
+    .equation strong { display: block; font-size: 30px; letter-spacing: -.02em; }
+    .equation span { display: block; margin-top: 12px; font-size: 17px; color: rgba(247, 251, 248, .68); }
+    .sources { margin-top: 22px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .source { padding: 17px; background: rgba(23, 38, 49, .055); font-size: 14px; line-height: 1.45; color: var(--muted); }
+    .source b { display: block; color: var(--ink); font-size: 16px; margin-bottom: 6px; }
+
+    /* 08 deploy */
+    .deploy-flow { margin-top: 42px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .deploy-step { min-height: 190px; padding: 26px 28px; background: var(--paper-2); display: grid; grid-template-columns: 62px 1fr; gap: 18px; }
+    .deploy-step:nth-child(2), .deploy-step:nth-child(3) { background: #dcece8; }
+    .deploy-num { width: 54px; height: 54px; border-radius: 50%; background: var(--navy); color: var(--mint); display: grid; place-items: center; font-size: 22px; font-weight: 700; }
+    .deploy-step h3 { font-size: 23px; }
+    .deploy-step p { margin-top: 10px; font-size: 17px; line-height: 1.5; color: var(--muted); }
+    .codebox { margin-top: 24px; background: var(--navy); color: #d8f4e9; padding: 28px 30px; font-size: 19px; line-height: 1.75; word-break: break-all; }
+    .codebox .prompt { color: var(--amber); }
+    .deploy-note { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .deploy-note div { background: rgba(23, 38, 49, .055); padding: 18px 20px; font-size: 16px; line-height: 1.5; color: var(--muted); }
+
+    /* 09 release */
+    .release { background: var(--navy); color: var(--white); padding: 70px 76px 54px; }
+    .release-shot { margin-top: 34px; height: 520px; background: #fff; overflow: hidden; border: 10px solid rgba(247, 251, 248, .18); }
+    .release-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .release h1 { margin-top: 38px; font-size: 62px; line-height: 1.08; letter-spacing: -.045em; font-weight: 630; }
+    .release h1 span { color: var(--mint); }
+    .release-list { margin-top: 26px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .release-item { padding: 18px 16px; background: rgba(247, 251, 248, .09); }
+    .release-item b { display: block; font-size: 20px; }
+    .release-item span { display: block; margin-top: 7px; font-size: 14px; line-height: 1.4; color: rgba(247, 251, 248, .62); }
+    .release-cta { margin-top: 26px; display: flex; align-items: center; justify-content: space-between; background: var(--mint); color: var(--navy); padding: 22px 26px; }
+    .release-cta strong { font-size: 22px; }
+    .release-cta span { font-size: 16px; font-weight: 650; }
+  </style>
+</head>
+<body>
+  <section class="card cover" data-card="1">
+    <div class="cover-art"></div><div class="cover-scrim"></div>
+    <div class="cover-top"><span>EARTH ONLINE · OPEN SOURCE</span><span>AGENTDNA / v0.1.0</span></div>
+    <h1>一人定方向，<br><span>多 BOT 成阵。</span></h1>
+    <p class="cover-sub">借鉴 DNA → mRNA → 功能产物的传递逻辑，把 Grok Bot 组织成一套可核验、可回退、可进化的协作系统。</p>
+    <div class="cover-stats">
+      <div class="stat"><strong>5</strong><span>开源 Skills</span></div>
+      <div class="stat"><strong>4</strong><span>BOT 协作角色</span></div>
+      <div class="stat"><strong>1</strong><span>人类最终门禁</span></div>
+    </div>
+    <div class="cover-foot"><span>GROK BOT × MULTI-AGENT × DNA</span><span>github.com/540709984-dotcom/earth-online-agentdna</span></div>
+  </section>
+
+  <section class="card page" data-card="2">
+    <div class="page-head"><span class="brand">EARTH ONLINE · AGENTDNA</span><span class="section-no">01 / 协作链</span></div>
+    <div style="margin-top:50px"><span class="badge"><i class="dot"></i> 从单点使用到团队协作</span></div>
+    <h2 class="title" style="margin-top:22px">不是多开几个窗口，<br>而是建立一条协作链。</h2>
+    <p class="lead">每个 BOT 只承担明确职责；任务、证据、版本和验收状态沿着同一条链路传递。</p>
+    <div class="chain">
+      <div class="chain-row">
+        <div class="chain-label"><strong>人类负责人</strong><span>目标 · 权限 · 最终接收</span></div>
+        <div class="chain-body">
+          <div class="node active"><b>协调 BOT</b><span>冻结任务契约<br>安排分工与停止条件</span></div>
+          <div class="node"><b>证据 BOT</b><span>检索原始来源<br>登记反证与边界</span></div>
+          <div class="node"><b>构建 BOT</b><span>只消费批准证据<br>生成指定版本产物</span></div>
+          <div class="node gate"><b>复核 BOT</b><span>独立核验<br>作者不得自批</span></div>
+        </div>
+      </div>
+      <div class="quote">“人的判断始终处在系统最上层。”<small>方向、外部动作与经验升级均保留人工门禁</small></div>
+    </div>
+    <div class="chain-note">
+      <div class="panel"><h3>交接必须带证据</h3><p>不是“我做完了”，而是来源、版本、未解决问题与下一位接收者都可追踪。</p></div>
+      <div class="panel"><h3>完成不等于接受</h3><p>文件生成、对方收到、独立核验、业务接受，分别记录，不混成一个“成功”。</p></div>
+    </div>
+    <div class="footer"><span class="url">github.com/540709984-dotcom/earth-online-agentdna/blob/main/docs/protocol.md</span><span class="page-num">02</span></div>
+  </section>
+
+  <section class="card page" data-card="3">
+    <div class="page-head"><span class="brand">EARTH ONLINE · AGENTDNA</span><span class="section-no">02 / DNA 隐喻</span></div>
+    <h2 class="title" style="margin-top:48px">把生物传递逻辑，<br>翻译成 AI 协作协议。</h2>
+    <p class="lead">稳定规则不直接等于成果；它必须经过一次受控“表达”，才能成为当前任务可执行的工作包。</p>
+    <div class="gene-map">
+      <div class="gene-stage"><div class="big">DNA</div><h3>稳定规则</h3><p>角色边界、权限、证据标准、停止条件与人工门禁。</p></div>
+      <div class="map-arrow">→</div>
+      <div class="gene-stage"><div class="big">mRNA</div><h3>当前任务包</h3><p>把长期规则选择性转录成有版本、有期限的 TaskPacket。</p></div>
+      <div class="map-arrow">→</div>
+      <div class="gene-stage"><div class="big">OUTPUT</div><h3>功能产物</h3><p>报告、代码、图表或决策稿；必须绑定证据与验收状态。</p></div>
+    </div>
+    <div class="mapping-table">
+      <div class="mapping-item"><b>复制校对</b> → 独立复核与版本校验</div>
+      <div class="mapping-item"><b>表达调控</b> → 按任务只启用必要 Skill</div>
+      <div class="mapping-item"><b>变异隔离</b> → 错误不自动进入长期规则</div>
+      <div class="mapping-item"><b>受控遗传</b> → 经验先提案，再由人批准</div>
+    </div>
+    <div class="caveat">边界说明：DNA、mRNA、校对与“遗传”是工程隐喻；本项目不修改模型权重，也不主张 AI 具有生物生命特征。</div>
+    <div class="footer"><span class="url">github.com/540709984-dotcom/earth-online-agentdna#这是什么</span><span class="page-num">03</span></div>
+  </section>
+
+  <section class="card page" data-card="4">
+    <div class="page-head"><span class="brand">EARTH ONLINE · AGENTDNA</span><span class="section-no">03 / 四 BOT 编制</span></div>
+    <h2 class="title" style="margin-top:48px">四种职责，<br>构成一条低错误协作回路。</h2>
+    <p class="lead">角色可以运行在同一平台，也可以由不同模型承担；关键不是名字，而是责任不可混淆。</p>
+    <div class="roles">
+      <div class="role"><div class="role-id">BOT 01 / ORCHESTRATE</div><div class="role-mark">O</div><h3>协调 BOT</h3><ul><li>冻结目标与边界</li><li>拆分依赖与并行任务</li><li>控制预算与停止条件</li></ul></div>
+      <div class="role"><div class="role-id">BOT 02 / EVIDENCE</div><div class="role-mark">E</div><h3>证据 BOT</h3><ul><li>优先原始资料</li><li>登记日期与适用范围</li><li>主动寻找反证</li></ul></div>
+      <div class="role"><div class="role-id">BOT 03 / BUILD</div><div class="role-mark">B</div><h3>构建 BOT</h3><ul><li>只消费批准证据</li><li>交付带版本的产物</li><li>不替复核者下结论</li></ul></div>
+      <div class="role"><div class="role-id">BOT 04 / REVIEW</div><div class="role-mark">R</div><h3>复核 BOT</h3><ul><li>不参与原稿生成</li><li>逐项检查验收条件</li><li>保留异议与未知项</li></ul></div>
+    </div>
+    <div class="independent"><strong>作者不能自批。</strong><span>复核角色必须独立于当前版本的构建过程；否则“多 BOT”只是同一种错误的重复。</span></div>
+    <div class="footer"><span class="url">github.com/540709984-dotcom/earth-online-agentdna/blob/main/docs/DEPLOYMENT.md</span><span class="page-num">04</span></div>
+  </section>
+
+  <section class="card page" data-card="5">
+    <div class="page-head"><span class="brand">EARTH ONLINE · AGENTDNA</span><span class="section-no">04 / 五项 Skill</span></div>
+    <h2 class="title" style="margin-top:48px">把协作方法，<br>封装成可复用的工作部件。</h2>
+    <p class="lead">每支 Skill 都能独立使用，也能按任务组合；减少长提示词反复解释造成的交接损失。</p>
+    <div class="skills-grid">
+      <div class="skill"><code>gene-spec</code><h3>任务基因规范</h3><p>固定目标、输入、权限、预算、责任与停止条件，输出 TaskPacket。</p></div>
+      <div class="skill"><code>evidence-transcribe</code><h3>证据转录</h3><p>把来源、日期、主张状态与反证边界写入 EvidencePacket。</p></div>
+      <div class="skill"><code>proofread-gate</code><h3>独立校对门禁</h3><p>分开记录收到、核验、接受；修改后旧核验自动失效。</p></div>
+      <div class="skill"><code>heritage-proposal</code><h3>经验遗传提案</h3><p>只生成候选规则，未经人类审核不改变长期协作逻辑。</p></div>
+      <div class="skill"><div><code>agentdna-research</code><h3>深度研究主流程</h3></div><p>从研究简报、证据账本到综合报告和独立核验，形成一条可直接部署到 WorkBuddy 的闭环。</p></div>
+    </div>
+    <div class="footer"><span class="url">github.com/540709984-dotcom/earth-online-agentdna</span><span class="page-num">05</span></div>
+  </section>
+
+  <section class="card page" data-card="6">
+    <div class="page-head"><span class="brand">EARTH ONLINE · AGENTDNA</span><span class="section-no">05 / 低错误机制</span></div>
+    <h2 class="title medium" style="margin-top:48px">错误不是靠“大家都同意”消失，<br>而是靠门禁被定位。</h2>
+    <p class="lead">系统把“已经生成”与“可以使用”拆开，让每次修改都重新建立证据与核验关系。</p>
+    <div class="gate-flow">
+      <div class="gate-step"><div class="num">01</div><h3>收件</h3><p>确认指定版本、文件清单和来源是否齐全。只说明“收到”，不代表内容正确。</p></div>
+      <div class="gate-sep">→</div>
+      <div class="gate-step"><div class="num">02</div><h3>核验</h3><p>对照任务契约逐项检查。保留失败、未知、反证和不适用边界。</p></div>
+      <div class="gate-sep">→</div>
+      <div class="gate-step"><div class="num">03</div><h3>接收</h3><p>由业务负责人判断是否满足真实场景。通过测试也不自动等于生产许可。</p></div>
+    </div>
+    <div class="controls">
+      <div class="control"><b>证据账本</b><span>事实可回到来源</span></div>
+      <div class="control"><b>版本绑定</b><span>改稿后旧结论失效</span></div>
+      <div class="control"><b>异议通道</b><span>少数意见不被共识吞没</span></div>
+      <div class="control"><b>人工门禁</b><span>高风险动作留在人手中</span></div>
+    </div>
+    <div class="quote" style="margin-top:26px">低错误，不是没有错误；<br>而是错误能被发现、隔离、解释与回退。</div>
+    <div class="footer"><span class="url">github.com/540709984-dotcom/earth-online-agentdna/blob/main/docs/protocol.md</span><span class="page-num">06</span></div>
+  </section>
+
+  <section class="card page" data-card="7">
+    <div class="page-head"><span class="brand">EARTH ONLINE · AGENTDNA</span><span class="section-no">06 / 研究证据</span></div>
+    <h2 class="title" style="margin-top:48px">研究结论：<br>多智能体并非越多越好。</h2>
+    <p class="lead">可拆分、可并行、可核验的任务更容易受益；强顺序、高通信、同源错误任务可能退化。</p>
+    <div class="evidence-columns">
+      <div class="evidence-col"><h3>更可能受益</h3><ul><li>资料检索可并行展开</li><li>不同角色掌握不同工具</li><li>交付物存在明确验收标准</li><li>复核路径与构建路径独立</li></ul></div>
+      <div class="evidence-col risk"><h3>更容易退化</h3><ul><li>任务依赖高度串行</li><li>角色间沟通成本过高</li><li>多个 BOT 共享同一错误来源</li><li>没有版本与停止条件</li></ul></div>
+    </div>
+    <div class="equation"><strong>并行收益 ＞ 通信成本 ＋ 级联错误</strong><span>成立时才值得扩充 BOT 数量；否则优先改进契约与核验。</span></div>
+    <div class="sources">
+      <div class="source"><b>Anthropic</b>Multi-agent Research System：并行研究的工程经验与限制。</div>
+      <div class="source"><b>MAST</b>对多智能体失败模式进行系统分类，强调协调与验证问题。</div>
+      <div class="source"><b>Karpathy</b>强调保持人在回路中，用可见、可迭代的方式管理 AI 工作。</div>
+    </div>
+    <div class="footer"><span class="url">github.com/540709984-dotcom/earth-online-agentdna/blob/main/docs/research-report.md</span><span class="page-num">07</span></div>
+  </section>
+
+  <section class="card page" data-card="8">
+    <div class="page-head"><span class="brand">EARTH ONLINE · AGENTDNA</span><span class="section-no">07 / WorkBuddy 部署</span></div>
+    <h2 class="title" style="margin-top:48px">从开源仓库，<br>进入你的真实工作流。</h2>
+    <p class="lead">先在低风险任务里跑通，再用同任务、同预算的单 BOT 基线衡量收益。</p>
+    <div class="deploy-flow">
+      <div class="deploy-step"><div class="deploy-num">1</div><div><h3>克隆仓库</h3><p>获取完整五项 Skill、模板、研究报告与合成演练。</p></div></div>
+      <div class="deploy-step"><div class="deploy-num">2</div><div><h3>加载 Skills</h3><p>在 WorkBuddy 项目中保留 <b>.codebuddy/skills/</b> 目录。</p></div></div>
+      <div class="deploy-step"><div class="deploy-num">3</div><div><h3>分配四种角色</h3><p>协调、证据、构建、复核；复核者不参与当前版本生成。</p></div></div>
+      <div class="deploy-step"><div class="deploy-num">4</div><div><h3>建立对照实验</h3><p>记录一次通过率、事实错误、耗时、成本与人工分钟。</p></div></div>
+    </div>
+    <div class="codebox"><span class="prompt">$</span> git clone https://github.com/540709984-dotcom/earth-online-agentdna.git<br><span class="prompt">$</span> cd earth-online-agentdna</div>
+    <div class="deploy-note"><div><b>最小配置：</b>协调兼构建、证据研究、独立复核三种职责。</div><div><b>核心原则：</b>先冻结任务契约，再让 BOT 开始工作。</div></div>
+    <div class="footer"><span class="url">github.com/540709984-dotcom/earth-online-agentdna/blob/main/docs/DEPLOYMENT.md</span><span class="page-num">08</span></div>
+  </section>
+
+  <section class="card release" data-card="9">
+    <div class="page-head"><span class="brand">EARTH ONLINE · AGENTDNA</span><span class="section-no">08 / GITHUB RELEASE</span></div>
+    <div class="release-shot"><img src="../../assets/moments/github-page.png" alt="AgentDNA GitHub repository screenshot"></div>
+    <h1>AgentDNA <span>v0.1.0</span><br>已经开源。</h1>
+    <div class="release-list">
+      <div class="release-item"><b>研究报告</b><span>论文、案例与边界</span></div>
+      <div class="release-item"><b>五项 Skill</b><span>可独立、可组合</span></div>
+      <div class="release-item"><b>部署指南</b><span>WorkBuddy + Grok Bot</span></div>
+      <div class="release-item"><b>机器模板</b><span>任务、证据与核验</span></div>
+    </div>
+    <div class="release-cta"><strong>欢迎用真实任务验证，也欢迎把失败案例带回来。</strong><span>MIT LICENSE</span></div>
+    <div class="footer"><span class="url">github.com/540709984-dotcom/earth-online-agentdna/releases/tag/v0.1.0</span><span class="page-num">09</span></div>
+  </section>
+
+  <script>
+    const card = new URLSearchParams(location.search).get('card') || '1';
+    const target = document.querySelector(`[data-card="${card}"]`) || document.querySelector('[data-card="1"]');
+    target.classList.add('active');
+  </script>
+</body>
+</html>

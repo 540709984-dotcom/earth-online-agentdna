@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-08 · Moments nine-card launch kit
+
+- Added nine 1080 × 1440 social cards covering the AgentDNA idea, roles, Skills, evidence, deployment and GitHub release.
+- Added a ready-to-post Chinese Moments caption with one GitHub destination per image.
+- Added a reproducible local HTML/Chrome rendering workflow and a downloadable nine-image ZIP.
+
 ## 0.1.0 - 2026-11-08
 
 - Added the standalone `agentdna-research` Skill, with a task brief, evidence ledger, synthesis outline, verification report, and human-reviewed change proposal.
