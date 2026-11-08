@@ -1,0 +1,17 @@
+{
+  "simulation": true,
+  "task_id": "EXAMPLE-FDE-001",
+  "parent_spec": {"id": "EXAMPLE-ROOT", "version": "0.1.0"},
+  "producer": "simulated-researcher",
+  "reviewer": "simulated-independent-reviewer",
+  "source_refs": ["README.md", "draft.md"],
+  "claim_status": "unverified",
+  "artifact_version": "0.1.0",
+  "claims": [
+    {"claim_id": "C-01", "text": "效率将提高30%", "claim_status": "unverified", "source_refs": [], "published_at": null, "observed_at": null, "accessed_at": null, "metric": {"value": 30, "unit": "%", "denominator": null, "baseline": null, "sample": null, "task": "虚构演练"}, "limitations": ["故意设置的无依据数字，不可用于业务结论"]},
+    {"claim_id": "C-02", "text": "建议开展限范围对照试点", "claim_status": "proposed", "source_refs": ["task-spec.json"], "published_at": null, "observed_at": null, "accessed_at": null, "limitations": ["设计建议，不是收益证明"]}
+  ],
+  "received": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "verified": {"status": "pending", "by": null, "at": null, "artifact_version": null, "evidence_refs": []},
+  "accepted": {"status": "pending", "by": null, "at": null, "artifact_version": null}
+}

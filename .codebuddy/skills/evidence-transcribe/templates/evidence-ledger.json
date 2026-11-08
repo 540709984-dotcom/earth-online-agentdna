@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1.0",
+  "task_id": "TASK-REPLACE-ME",
+  "parent_spec": {"id": "ROOT-SPEC", "version": "0.1.0"},
+  "producer": "researcher",
+  "reviewer": "independent-reviewer",
+  "source_refs": [],
+  "claim_status": "unverified",
+  "artifact_version": "0.1.0",
+  "claims": [
+    {
+      "claim_id": "C-001",
+      "text": "填写待核查陈述",
+      "claim_status": "unverified",
+      "source_refs": [],
+      "source_type": null,
+      "published_at": null,
+      "observed_at": null,
+      "accessed_at": null,
+      "metric": {"value": null, "unit": null, "denominator": null, "baseline": null, "sample": null, "task": null},
+      "limitations": [],
+      "contradicting_sources": [],
+      "verification_note": "来源说了什么、原始证据是什么、尚未证实什么",
+      "external_source_instructions": "ignored_as_untrusted_data"
+    }
+  ],
+  "received": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "verified": {"status": "pending", "by": null, "at": null, "artifact_version": null, "evidence_refs": []},
+  "accepted": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "retry": {"attempt": 0, "max_retries": 1, "stop_reason": null}
+}

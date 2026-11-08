@@ -1,0 +1,8 @@
+# Local experiment outputs and imported/private materials
+output/
+artifacts/
+*.local.json
+*.trace.jsonl
+.env
+.DS_Store
+Thumbs.db

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc">
+  <title id="title">AgentDNA 三层双循环</title><desc id="desc">稳定规则转录为任务包，经过研究、构建、独立核验和人工接收；经验需经回归和人工批准才成为新规则。</desc>
+  <rect width="1440" height="820" fill="#f5f0e6"/>
+  <rect x="54" y="44" width="1332" height="172" rx="18" fill="#073244"/>
+  <text x="94" y="94" fill="#a8d8d0" font-family="Microsoft YaHei, sans-serif" font-size="21" letter-spacing="4">EARTH ONLINE · AGENTDNA</text>
+  <text x="94" y="148" fill="#ffffff" font-family="Microsoft YaHei, sans-serif" font-size="46" font-weight="700">让协作携带证据，让经验经过批准</text>
+  <text x="96" y="186" fill="#d6e8e3" font-family="Microsoft YaHei, sans-serif" font-size="20">DNA / mRNA 是工程类比，不是生物学等价模型</text>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#256778"/></marker><marker id="dash" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#a7673e"/></marker></defs>
+  <text x="76" y="268" fill="#16485a" font-family="Microsoft YaHei, sans-serif" font-size="24" font-weight="700">执行循环：一件事怎样可靠走到下一棒</text>
+  <g font-family="Microsoft YaHei, sans-serif">
+    <g fill="#dceeea" stroke="#256778" stroke-width="2"><rect x="74" y="306" width="196" height="102" rx="12"/><rect x="334" y="306" width="196" height="102" rx="12"/><rect x="594" y="306" width="196" height="102" rx="12"/><rect x="854" y="306" width="196" height="102" rx="12"/><rect x="1114" y="306" width="196" height="102" rx="12"/></g>
+    <g fill="#073244" font-size="23" font-weight="700"><text x="108" y="349">稳定规则</text><text x="364" y="349">任务包</text><text x="627" y="349">证据与产物</text><text x="883" y="349">独立核验</text><text x="1147" y="349">人/接收者</text></g>
+    <g fill="#47707c" font-size="16"><text x="104" y="379">版本 · 权限 · 验收</text><text x="355" y="379">范围 · 输入 · 停止</text><text x="625" y="379">来源 · 版本 · 风险</text><text x="888" y="379">不是作者自批</text><text x="1140" y="379">accepted 才关单</text></g>
+    <path d="M270 357H325 M530 357H585 M790 357H845 M1050 357H1105" fill="none" stroke="#256778" stroke-width="3" marker-end="url(#arrow)"/>
+    <path d="M950 421 C950 492,692 492,692 421" fill="none" stroke="#a7673e" stroke-width="3" stroke-dasharray="9 8" marker-end="url(#dash)"/><text x="713" y="486" fill="#a7673e" font-size="17">阻断问题：退回最小责任节点</text>
+  </g>
+  <line x1="76" y1="535" x2="1364" y2="535" stroke="#c9c2b8"/>
+  <text x="76" y="583" fill="#16485a" font-family="Microsoft YaHei, sans-serif" font-size="24" font-weight="700">改进循环：什么才有资格传给下一轮</text>
+  <g font-family="Microsoft YaHei, sans-serif"><g fill="#fffdf8" stroke="#a7673e" stroke-width="2"><rect x="96" y="622" width="238" height="100" rx="12"/><rect x="454" y="622" width="238" height="100" rx="12"/><rect x="812" y="622" width="238" height="100" rx="12"/><rect x="1170" y="622" width="174" height="100" rx="12"/></g><g fill="#6c412d" font-size="21" font-weight="700"><text x="129" y="662">已验收任务</text><text x="477" y="662">规则变更提案</text><text x="847" y="662">跨任务回归</text><text x="1190" y="662">人工批准</text></g><g fill="#7d6c60" font-size="15"><text x="124" y="692">输入、证据、结果</text><text x="479" y="692">范围、diff、回滚</text><text x="849" y="692">成功与反例</text><text x="1201" y="692">新版本或拒绝</text></g><path d="M334 672H445 M692 672H803 M1050 672H1161" fill="none" stroke="#a7673e" stroke-width="3" marker-end="url(#dash)"/></g>
+  <text x="76" y="778" fill="#47707c" font-family="Microsoft YaHei, sans-serif" font-size="16">生成 ≠ 收到 ≠ 验证 ≠ 接受；候选经验 ≠ 已批准规则。</text>
+</svg>

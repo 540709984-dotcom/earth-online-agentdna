@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760" role="img" aria-labelledby="t d">
+  <title id="t">何时增加Bot：AgentDNA评估矩阵</title><desc id="d">以任务可拆分性和可验证性为轴，说明简单单代理、有限协作和人工主导的适用区域。</desc>
+  <rect width="1440" height="760" fill="#f5f0e6"/>
+  <text x="74" y="86" fill="#073244" font-family="Microsoft YaHei, sans-serif" font-size="38" font-weight="700">何时增加 Bot，何时保持简单</text>
+  <text x="76" y="123" fill="#47707c" font-family="Microsoft YaHei, sans-serif" font-size="19">先测单代理基线；任务结构决定协作价值，人数不是指标。</text>
+  <g stroke="#52747c" stroke-width="2" fill="none"><path d="M210 626H1290"/><path d="M210 626V194"/></g>
+  <text x="716" y="685" fill="#16485a" font-family="Microsoft YaHei, sans-serif" font-size="21">任务可独立拆分程度 →</text><text x="80" y="413" fill="#16485a" font-family="Microsoft YaHei, sans-serif" font-size="21" transform="rotate(-90 80 413)">结果可被外部验证程度 →</text>
+  <g font-family="Microsoft YaHei, sans-serif"><rect x="210" y="410" width="540" height="216" fill="#e4efea"/><rect x="750" y="410" width="540" height="216" fill="#d4e7e3"/><rect x="210" y="194" width="540" height="216" fill="#fff8e9"/><rect x="750" y="194" width="540" height="216" fill="#e9f0ea"/></g>
+  <g font-family="Microsoft YaHei, sans-serif"><text x="256" y="467" fill="#16485a" font-size="25" font-weight="700">低拆分 · 低验证</text><text x="256" y="504" fill="#47707c" font-size="18">高不确定性、顺序依赖、影响大</text><text x="256" y="538" fill="#47707c" font-size="18">人主导；缩小任务；先做安全草案</text><text x="796" y="467" fill="#16485a" font-size="25" font-weight="700">高拆分 · 低验证</text><text x="796" y="504" fill="#47707c" font-size="18">并行可扩大候选，但很难确认对错</text><text x="796" y="538" fill="#47707c" font-size="18">有限探索；保留异议；人工决定</text><text x="256" y="251" fill="#6c412d" font-size="25" font-weight="700">低拆分 · 高验证</text><text x="256" y="288" fill="#7d6c60" font-size="18">状态连续、可运行测试的任务</text><text x="256" y="322" fill="#7d6c60" font-size="18">优先结构化单代理；减少交接</text><text x="796" y="251" fill="#16485a" font-size="25" font-weight="700">高拆分 · 高验证</text><text x="796" y="288" fill="#47707c" font-size="18">独立检索、构建、复核可并行</text><text x="796" y="322" fill="#47707c" font-size="18">三职责协作；记录成本与交接损失</text></g>
+  <g fill="#a7673e" font-family="Microsoft YaHei, sans-serif" font-size="17"><text x="210" y="655">低</text><text x="1234" y="655">高</text><text x="181" y="630">低</text><text x="181" y="214">高</text></g>
+  <text x="76" y="730" fill="#47707c" font-family="Microsoft YaHei, sans-serif" font-size="16">任何区域：外发、付款、删除和生产变更仍由人审批；相同模型的多角色不能证明错误独立。</text>
+</svg>

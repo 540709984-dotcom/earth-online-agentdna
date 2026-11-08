@@ -1,0 +1,23 @@
+{
+  "simulation": true,
+  "task_id": "EXAMPLE-FDE-001",
+  "parent_spec": {"id": "EXAMPLE-ROOT", "version": "0.1.0"},
+  "producer": "simulated-coordinator-builder",
+  "reviewer": "simulated-independent-reviewer",
+  "source_refs": ["README.md"],
+  "claim_status": "proposed",
+  "artifact_version": "0.1.0",
+  "goal": "为虚构企业写一页FDE试点简报",
+  "deliverables": ["draft.md", "evidence-ledger.json", "verification-report.json"],
+  "acceptance_criteria": [
+    {"id": "AC-01", "text": "标明案例是虚构演练"},
+    {"id": "AC-02", "text": "效果数字具有来源、基线、样本和统计口径"},
+    {"id": "AC-03", "text": "试点建议与真实测量结论分开"}
+  ],
+  "execution_mode": "fixture_only_no_actual_agents",
+  "budget": {"max_agent_calls": 3, "max_retries_per_stage": 1, "max_wall_minutes": 15, "currency_limit": null, "budget_status": "example_only"},
+  "external_action_authorization": {"status": "not_requested", "scope": [], "evidence_ref": null},
+  "received": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "verified": {"status": "pending", "by": null, "at": null, "artifact_version": null, "evidence_refs": []},
+  "accepted": {"status": "pending", "by": null, "at": null, "artifact_version": null}
+}

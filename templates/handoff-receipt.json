@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1.0",
+  "task_id": "TASK-REPLACE-ME",
+  "parent_spec": {"id": "ROOT-SPEC", "version": "0.1.0"},
+  "producer": "coordinator-builder",
+  "reviewer": "independent-reviewer",
+  "source_refs": [],
+  "claim_status": "unverified",
+  "artifact_version": "0.1.0",
+  "artifact_path": "outputs/draft.md",
+  "artifact_sha256": null,
+  "next_owner": "independent-reviewer",
+  "next_action": "对照任务契约和证据逐项检查",
+  "known_gaps": [],
+  "received": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "verified": {"status": "pending", "by": null, "at": null, "artifact_version": null, "evidence_refs": []},
+  "accepted": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "external_action_authorization": {"status": "not_requested", "scope": [], "evidence_ref": null}
+}

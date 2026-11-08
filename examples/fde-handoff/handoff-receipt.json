@@ -1,0 +1,18 @@
+{
+  "simulation": true,
+  "task_id": "EXAMPLE-FDE-001",
+  "parent_spec": {"id": "EXAMPLE-ROOT", "version": "0.1.0"},
+  "producer": "simulated-coordinator-builder",
+  "reviewer": "simulated-independent-reviewer",
+  "source_refs": ["task-spec.json", "evidence-ledger.json"],
+  "claim_status": "unverified",
+  "artifact_version": "0.1.0",
+  "artifact_path": "draft.md",
+  "artifact_sha256": null,
+  "next_owner": "simulated-coordinator-builder",
+  "next_action": "删除未证实的30%或补充真实证据，升级版本后重新复核",
+  "received": {"status": "received", "by": "simulated-independent-reviewer", "at": "EXAMPLE-NOT-A-REAL-TIMESTAMP", "artifact_version": "0.1.0"},
+  "verified": {"status": "fail", "by": "simulated-independent-reviewer", "at": "EXAMPLE-NOT-A-REAL-TIMESTAMP", "artifact_version": "0.1.0", "evidence_refs": ["verification-report.json"]},
+  "accepted": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "external_action_authorization": {"status": "not_requested", "scope": [], "evidence_ref": null}
+}

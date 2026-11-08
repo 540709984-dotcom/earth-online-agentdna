@@ -1,0 +1,23 @@
+{
+  "simulation": true,
+  "task_id": "EXAMPLE-FDE-001",
+  "parent_spec": {"id": "EXAMPLE-ROOT", "version": "0.1.0"},
+  "producer": "simulated-coordinator-builder",
+  "reviewer": "simulated-independent-reviewer",
+  "source_refs": ["task-spec.json", "draft.md", "evidence-ledger.json"],
+  "claim_status": "proposed",
+  "artifact_version": "0.1.0",
+  "artifact_path": "draft.md",
+  "reviewer_run_ref": null,
+  "independence": {"different_actor": false, "did_not_author_artifact": false, "fresh_evidence_check": false, "note": "这是手工构造的失败样例，没有真实独立代理运行"},
+  "checks": [
+    {"criterion_id": "AC-01", "result": "pass", "evidence_ref": "draft.md", "finding": "示例明确标注虚构"},
+    {"criterion_id": "AC-02", "result": "fail", "evidence_ref": "evidence-ledger.json#C-01", "finding": "30%缺少来源、基线、样本和统计口径"},
+    {"criterion_id": "AC-03", "result": "fail", "evidence_ref": "draft.md", "finding": "含未来收益承诺，与证据缺口冲突"}
+  ],
+  "blockers": ["无依据的效率数字", "本fixture本身不能证明真实独立复核"],
+  "received": {"status": "received", "by": "simulated-independent-reviewer", "at": "EXAMPLE-NOT-A-REAL-TIMESTAMP", "artifact_version": "0.1.0"},
+  "verified": {"status": "fail", "by": "simulated-independent-reviewer", "at": "EXAMPLE-NOT-A-REAL-TIMESTAMP", "artifact_version": "0.1.0", "evidence_refs": ["evidence-ledger.json"]},
+  "accepted": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "retry": {"attempt": 0, "max_retries": 1, "stop_reason": "等待修订或补证"}
+}

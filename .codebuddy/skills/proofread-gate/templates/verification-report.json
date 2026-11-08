@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.1.0",
+  "task_id": "TASK-REPLACE-ME",
+  "parent_spec": {"id": "ROOT-SPEC", "version": "0.1.0"},
+  "producer": "coordinator-builder",
+  "reviewer": "independent-reviewer",
+  "source_refs": [],
+  "claim_status": "unverified",
+  "artifact_version": "0.1.0",
+  "artifact_path": "outputs/draft.md",
+  "artifact_sha256": null,
+  "reviewer_run_ref": null,
+  "independence": {"different_actor": false, "did_not_author_artifact": false, "fresh_evidence_check": false, "note": "不同角色名或同一模型自述不构成独立复核证明"},
+  "checks": [{"criterion_id": "AC-001", "result": "pending", "evidence_ref": null, "finding": null}],
+  "blockers": [],
+  "received": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "verified": {"status": "pending", "by": null, "at": null, "artifact_version": null, "evidence_refs": []},
+  "accepted": {"status": "pending", "by": null, "at": null, "artifact_version": null},
+  "retry": {"attempt": 0, "max_retries": 1, "stop_reason": null},
+  "invalidate_if": ["产物版本或内容变化", "父任务契约变化", "来源被撤回或出现决定性反证"]
+}
